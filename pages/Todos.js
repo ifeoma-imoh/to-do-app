@@ -3,8 +3,8 @@ const Todos = ({ todos, deleteTodo }) => {
     const todoList = todos.length ? (
         todos.map(todo => {
             return (
-                <ul key={todo.id}>
-                    <li onClick={() => { deleteTodo(todo.id) }}>
+                <ul key={todo._id}>
+                    <li onClick={() => { deleteTodo(todo._id, todo.completed) }}>
                         {todo.completed === true ? <Icon /> : <div></div>}
                         <div style={{ textDecoration: todo.completed === true ? "line-through solid #3d3d3d" : "none" }}>{todo.content}</div>
                     </li>
@@ -12,7 +12,7 @@ const Todos = ({ todos, deleteTodo }) => {
             )
         })
     ) : (
-            <p>Ifeoma you have nothing left todo... yayy!</p>
+            <p style={{ textAlign: 'center' }}>You have nothing left todo... yayy!</p>
         )
     return (
         <div>
